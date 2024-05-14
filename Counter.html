@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .increment-btn,
+      .decrement-btn,
+      .reset-btn {
+        background-color: rgb(114, 56, 168);
+        color: white;
+        padding: 10px 28px;
+        border: none;
+        margin-top: 14px;
+        border-radius: 6px;
+      }
+      .counter {
+        font-size: 24px;
+        font-weight: 800;
+      }
+      .btns {
+        display: flex;
+        gap: 20px;
+      }
+      label {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      input {
+        padding: 6px;
+        border-radius: 6px;
+      }
+      .form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="counter-no">
+        <p class="counter">0</p>
+      </div>
+      <div class="btns">
+        <button class="increment-btn" id="inc-btn">+</button>
+        <button class="decrement-btn" id="dec-btn">-</button>
+      </div>
+      <div class="form">
+        <label for="input">Increment Or Decrement By</label>
+        <input type="text" id="input" value="1" />
+      </div>
+
+      <button class="reset-btn">Reset</button>
+    </div>
+
+    <script>
+      let inc = document.getElementById("inc-btn");
+      let dec = document.getElementById("dec-btn");
+      let counterP = document.querySelector(".counter");
+      let input = document.querySelector("#input");
+      let reset = document.querySelector(".reset-btn");
+
+      console.log(input);
+
+      inc.addEventListener("click", function () {
+        let counterValue = parseInt(counterP.innerText);
+        let changeByValue = parseInt(input.value);
+        counterP.innerText = counterValue + changeByValue;
+      });
+
+      dec.addEventListener("click", function () {
+        let counterValue = parseInt(counterP.innerText);
+        let changeByValue = parseInt(input.value);
+        counterP.innerText = counterValue - changeByValue;
+      });
+
+      reset.addEventListener("click", function () {
+        counterP.innerHTML = '0'
+      });
+    </script>
+  </body>
+</html>
